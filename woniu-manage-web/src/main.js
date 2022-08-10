@@ -11,8 +11,10 @@ import './http';
 import 'vuetify/dist/vuetify.min.css'
 import qs from 'qs'
 import 'element-ui/lib/theme-chalk/index.css';
-import './assets/material.css' 
+import './assets/material.css'
+import ElementUI from 'element-ui'
 
+Vue.use(ElementUI)
 Vue.use(Vuetify, { theme: config.theme})
 Vue.use(MyComponent)
 Vue.prototype.$qs = qs;
