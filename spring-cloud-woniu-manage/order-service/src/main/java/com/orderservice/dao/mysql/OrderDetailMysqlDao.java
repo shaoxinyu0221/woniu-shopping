@@ -1,6 +1,10 @@
 package com.orderservice.dao.mysql;
 
+import com.orderservice.web.dto.OrderDetailDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author 邵鑫雨
@@ -11,4 +15,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderDetailMysqlDao {
 
+    @Select("select * from tb_order_detail where order_id=#{orderId}")
+    List<OrderDetailDto> getListByOrderId(String orderId);
 }

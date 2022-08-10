@@ -10,8 +10,5 @@ import lombok.NoArgsConstructor;
  * @description: TODO
  * @date 2022/8/10 20:27
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class GoodDto {
 }

@@ -26,6 +26,6 @@ public class OrderDetailDto {
     private String ownSpec;
     //商品价格,单位为分
     private Integer price;
-    private Integer image;
+    private String image;
 
 }

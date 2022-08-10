@@ -49,7 +49,7 @@ export default {
     },
     handleShow(val){
       console.log(val.order_id)
-      this.$axios.get("/api/order/item").then(res=>{
+      this.$axios.get("/api/order/item/list?orderId="+val.order_id).then(res=>{
         console.log(res.data.data)
       })
     }
