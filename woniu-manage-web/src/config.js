@@ -1,11 +1,11 @@
-const baseUrl = 'http://api.woniu.com'
+// const baseUrl = 'http://127.0.0.1:9090'
 const config = {
   locale: 'zh-CN', // en-US, zh-CN
-  url: baseUrl,
+  // url: baseUrl,
   debug: {
     http: false // http request log
   },
-  api: `${baseUrl}/api`,
+  // api: `${baseUrl}`,
   theme:{
     primary: "#2196F3",
     secondary: "#455A64",

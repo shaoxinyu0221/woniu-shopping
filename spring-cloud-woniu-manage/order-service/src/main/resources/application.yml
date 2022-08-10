@@ -3,6 +3,8 @@ server:
 spring:
   main:
     banner-mode: off
+  jackson:
+    time-zone: GMT+8
   application:
     name: order-service
   datasource:
@@ -16,3 +18,13 @@ mybatis-plus:
   type-aliases-package: 
   global-config:
     banner: off
+
+feign:
+  httpclient:
+    enabled: true # 激活 httpclient 的使用
+logging:
+  level:
+    com.orderservice.dao: debug
+    org.springframework.web: debug
+
+

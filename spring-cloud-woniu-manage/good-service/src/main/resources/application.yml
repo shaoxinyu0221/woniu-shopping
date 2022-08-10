@@ -16,3 +16,7 @@ mybatis-plus:
   type-aliases-package:
   global-config:
     banner: off
+
+feign:
+  httpclient:
+    enabled: true # 激活 httpclient 的使用
