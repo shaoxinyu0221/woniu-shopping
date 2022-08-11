@@ -9,20 +9,38 @@
           <el-tag type="success" v-if="scope.row.payment_type === 2">货到付款</el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="post_fee" label="运费" width="60"></el-table-column>
-      <el-table-column label="地址" width="300">
+      <el-table-column label="订单实付金额" width="120" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.actual_pay/100}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="post_fee" label="运费" width="60" align="center"></el-table-column>
+      <el-table-column label="收货地址" width="350" align="center">
         <template slot-scope="scope">
           <span>{{scope.row.receiver_city + scope.row.receiver_district + scope.row.receiver_address}}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="receiver_zip" label="邮编" width="80"></el-table-column>
-      <el-table-column label="操作" width="200">
+      <el-table-column prop="receiver_zip" label="邮编" width="80" align="center"></el-table-column>
+      <el-table-column label="操作" width="200" fixed="right" align="center">
         <template slot-scope="scope">
           <el-button size="mini" @click="handleShow(scope.row)">查看</el-button>
           <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
+
+    <!--订单项详情-->
+    <el-dialog title="订单详情" :visible.sync="dialogTableVisible">
+      <el-table :data="orderDetails">
+        <el-table-column property="title" label="商品名" width="350" align="center"></el-table-column>
+        <el-table-column label="实付金额" width="120" align="center">
+          <template slot-scope="scope">
+            <span>{{scope.row.price/100}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column property="num" label="数量"></el-table-column>
+      </el-table>
+    </el-dialog>
   </div>
 </template>
 
@@ -32,6 +50,8 @@ export default {
   data(){
     return {
       orderList:[],
+      orderDetails:[],
+      dialogTableVisible:false,
     }
   },
   created() {
@@ -48,9 +68,11 @@ export default {
 
     },
     handleShow(val){
-      console.log(val.order_id)
+
       this.$axios.get("/api/order/item/list?orderId="+val.order_id).then(res=>{
         console.log(res.data.data)
+        this.orderDetails = res.data.data
+        this.dialogTableVisible = true
       })
     }
   }
