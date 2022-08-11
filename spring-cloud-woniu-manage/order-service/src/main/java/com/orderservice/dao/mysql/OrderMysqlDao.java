@@ -1,6 +1,7 @@
 package com.orderservice.dao.mysql;
 
 import com.orderservice.web.dto.OrderDto;
+import com.orderservice.web.fo.OrderPageFo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

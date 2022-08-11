@@ -28,6 +28,15 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- 分页组件 -->
+    <el-pagination
+      :background="true"
+      layout="prev, pager, next, jumper"
+      :current-page="pageNum"
+      :page-count = "pageInfo.pages"
+      @current-change="handlePageNum"
+    >
+    </el-pagination>
 
     <!--订单项详情-->
     <el-dialog title="订单详情" :visible.sync="dialogTableVisible">
@@ -52,16 +61,24 @@ export default {
       orderList:[],
       orderDetails:[],
       dialogTableVisible:false,
+      pageInfo:null,
+      pageNum:1,
+      pageSize:3,
     }
   },
   created() {
     this.getOrderList()
   },
   methods:{
+    handlePageNum(val){
+      this.pageNum = val
+      this.getOrderList()
+    },
     //获取订单列表
     getOrderList(){
-      this.$axios.get("/api/order/list").then(res=>{
-        this.orderList = res.data.data
+      this.$axios.get("/api/order/list?pageNum="+this.pageNum).then(res=>{
+        this.pageInfo = res.data.data
+        this.orderList = res.data.data.list
       })
     },
     handleDelete(){

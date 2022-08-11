@@ -22,6 +22,8 @@ mybatis-plus:
 feign:
   httpclient:
     enabled: true # 激活 httpclient 的使用
+  sentinel:
+      enabled: true # 激活 sentinel
 logging:
   level:
     com.orderservice.dao: debug
