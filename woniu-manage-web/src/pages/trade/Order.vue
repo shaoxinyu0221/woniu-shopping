@@ -48,6 +48,11 @@
           </template>
         </el-table-column>
         <el-table-column property="num" label="数量"></el-table-column>
+        <el-table-column label="操作" width="200" align="center">
+          <template slot-scope="scope">
+            <el-button size="mini" @click="showGoodDetail(scope.row)">查看商品详情</el-button>
+          </template>
+        </el-table-column>
       </el-table>
     </el-dialog>
   </div>
@@ -60,6 +65,7 @@ export default {
     return {
       orderList:[],
       orderDetails:[],
+      skuId:"",
       dialogTableVisible:false,
       pageInfo:null,
       pageNum:1,
@@ -85,12 +91,15 @@ export default {
 
     },
     handleShow(val){
-
       this.$axios.get("/api/order/item/list?orderId="+val.order_id).then(res=>{
         console.log(res.data.data)
         this.orderDetails = res.data.data
         this.dialogTableVisible = true
       })
+    },
+  //  根据sku_id查商品详细信息
+    showGoodDetail(val){
+      console.log(val.sku_id)
     }
   }
 }
