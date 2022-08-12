@@ -1,0 +1,9 @@
+server:
+    port: 10086
+spring:
+    application:
+        name: zuul-gateway
+zuul:
+    routes:
+      good-service: /good/**
+      order-service: /order/**
