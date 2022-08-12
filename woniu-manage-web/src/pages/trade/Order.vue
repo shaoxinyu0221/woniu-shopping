@@ -82,7 +82,7 @@ export default {
     },
     //获取订单列表
     getOrderList(){
-      this.$axios.get("/api/order/list?pageNum="+this.pageNum).then(res=>{
+      this.$axios.get("/api/order/order/list?pageNum="+this.pageNum).then(res=>{
         this.pageInfo = res.data.data
         this.orderList = res.data.data.list
       })
@@ -91,7 +91,7 @@ export default {
 
     },
     handleShow(val){
-      this.$axios.get("/api/order/item/list?orderId="+val.order_id).then(res=>{
+      this.$axios.get("/api/order/order/item/list?orderId="+val.order_id).then(res=>{
         console.log(res.data.data)
         this.orderDetails = res.data.data
         this.dialogTableVisible = true
