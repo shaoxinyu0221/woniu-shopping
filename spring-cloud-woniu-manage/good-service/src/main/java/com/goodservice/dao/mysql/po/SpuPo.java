@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,6 +19,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@TableName("tb_spu")
 public class SpuPo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,12 +63,12 @@ public class SpuPo implements Serializable {
     /**
      * 是否上架，0下架，1上架
      */
-    private Boolean saleable;
+    private Integer saleable;
 
     /**
      * 是否有效，0已删除，1有效
      */
-    private Boolean valid;
+    private Integer valid;
 
     /**
      * 添加时间

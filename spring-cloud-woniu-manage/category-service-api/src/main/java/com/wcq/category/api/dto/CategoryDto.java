@@ -1,4 +1,4 @@
-package com.wcq.categoryservice.web.controller.dto;
+package com.wcq.category.api.dto;
 
 import lombok.Data;
 
@@ -14,11 +14,11 @@ import java.util.List;
 
 @Data
 public class CategoryDto implements Serializable {
-    private BigInteger id;
+    private Long id;
 
     private String name;
 
-    private BigInteger parentId;
+    private Long parentId;
     private Integer isParent;
     private Integer sort;
 

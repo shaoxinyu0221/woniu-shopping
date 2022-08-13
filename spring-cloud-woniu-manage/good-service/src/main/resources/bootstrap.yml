@@ -5,7 +5,7 @@ spring:
         username: nacos
         password: nacos
         server-addr: 192.172.0.203:8848
-        group: shaoxinyu
+        group: yuyang
     sentinel:
       transport:
         dashboard: 127.0.0.1:8858

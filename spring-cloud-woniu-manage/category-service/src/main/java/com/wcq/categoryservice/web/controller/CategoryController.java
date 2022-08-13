@@ -1,7 +1,7 @@
 package com.wcq.categoryservice.web.controller;
 
 import com.commons.utils.ResponseResult;
-import com.wcq.categoryservice.web.controller.dto.CategoryDto;
+import com.wcq.category.api.dto.CategoryDto;
 import com.wcq.categoryservice.repostiory.CategoryRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

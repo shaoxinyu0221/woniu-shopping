@@ -1,6 +1,6 @@
 package com.wcq.categoryservice.repostiory;
 
-import com.wcq.categoryservice.web.controller.dto.CategoryDto;
+import com.wcq.category.api.dto.CategoryDto;
 import com.wcq.categoryservice.dao.mysql.CategoryDao;
 import com.wcq.categoryservice.dao.mysql.po.CategoryPo;
 import com.wcq.categoryservice.web.controller.dto.converter.CategoryDtoConverter;

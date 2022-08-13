@@ -20,7 +20,22 @@
     </properties>
 
     <dependencies>
-
+        <!--本地包-->
+        <dependency>
+            <groupId>com.shopping</groupId>
+            <artifactId>commons-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wcq</groupId>
+            <artifactId>brand-service-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wcq</groupId>
+            <artifactId>category-service-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>good-service-api</artifactId>
@@ -32,7 +47,7 @@
             <artifactId>order-service-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
+        <!--spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
