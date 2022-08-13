@@ -1,15 +1,15 @@
 <template>
-  <v-card>
-      <v-flex xs12 sm10>
-        <v-tree url="/item/category/list"
-                :isEdit="isEdit"
-                @handleAdd="handleAdd"
-                @handleEdit="handleEdit"
-                @handleDelete="handleDelete"
-                @handleClick="handleClick"
-        />
-      </v-flex>
-  </v-card>
+  <div>
+    <el-tree
+      :data="categoryList"
+      show-checkbox
+      node-key="id"
+      :default-expanded-keys="[2, 3]"
+      :default-checked-keys="[5]"
+      :props="defaultProps">
+    </el-tree>
+  </div>
+
 </template>
 
 <script>
@@ -17,23 +17,18 @@
     name: "category",
     data() {
       return {
-        isEdit:true
+        categoryList:[],
+        defaultProps: {
+          children: 'children',
+          label: 'label'
+        }
       }
     },
     methods: {
-      handleAdd(node) {
-        console.log("add .... ");
-        console.log(node);
-      },
-      handleEdit(id, name) {
-        console.log("edit... id: " + id + ", name: " + name)
-      },
-      handleDelete(id) {
-        console.log("delete ... " + id)
-      },
-      handleClick(node) {
-        console.log(node)
-      }
+
+    },
+    created() {
+
     }
   };
 </script>
