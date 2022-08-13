@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orderservice.dao.mysql.PayLogMysqlDao">
+
+    <select id="getPayLog" resultType="com.orderservice.web.dto.PayLogDto">
+        select * from tb_pay_log where 1=1
+        <if test="orderId != null and orderId != ''">
+            and order_id = #{orderId}
+        </if>
+        <if test="startPayTime != null and startPayTime != ''">
+            and create_time &gt; #{startPayTime}
+        </if>
+        <if test="endPayTime != null and endPayTime != ''">
+            and create_time &lt; #{endPayTime}
+        </if>
+    </select>
+</mapper>

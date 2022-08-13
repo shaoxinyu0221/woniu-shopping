@@ -1,4 +1,4 @@
-﻿package com.wcq.brandservice.dao.mysql.po;
+package com.wcq.brandservice.dao.mysql.po;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

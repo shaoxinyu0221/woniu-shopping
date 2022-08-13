@@ -1,6 +1,12 @@
 package com.orderservice.client.fallback;
 
 import com.orderservice.client.OrderServiceClient;
+import com.orderservice.web.fo.PayLogFo;
+import com.orderservice.web.dto.PayLogDto;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * @author 邵鑫雨
@@ -10,4 +16,8 @@ import com.orderservice.client.OrderServiceClient;
  */
 
 public class OrderServiceClientFallback implements OrderServiceClient {
+    @Override
+    public ResponseEntity<List<PayLogDto>> getPayLogList(@RequestBody PayLogFo payLogFo) {
+        return null;
+    }
 }

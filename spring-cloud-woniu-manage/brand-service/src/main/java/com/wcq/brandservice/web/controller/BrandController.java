@@ -1,4 +1,4 @@
-﻿package com.wcq.brandservice.web.controller;
+package com.wcq.brandservice.web.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
