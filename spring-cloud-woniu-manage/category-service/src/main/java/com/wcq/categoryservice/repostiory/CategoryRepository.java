@@ -25,11 +25,9 @@ public class CategoryRepository {
     private CategoryDtoConverter converter;
     public List<CategoryDto> getCategoryRoot(){
         //获取到根顶点
-        List<CategoryPo> categoryPoList = categoryDao.selectList(null);
-        System.out.println(categoryPoList+"_------------");
+        List<CategoryPo> categoryPoList = categoryDao.getCategoryRoot();
         //转换
         List<CategoryDto> categoryDtoList = converter.from(categoryPoList);
-        System.out.println(categoryDtoList+"*********");
         return categoryDtoList;
     }
 
