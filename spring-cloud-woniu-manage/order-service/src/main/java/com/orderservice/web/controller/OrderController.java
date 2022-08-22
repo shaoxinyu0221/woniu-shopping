@@ -6,14 +6,13 @@ import com.github.pagehelper.PageInfo;
 import com.goodservice.client.GoodServiceClient;
 import com.goodservice.web.dto.SkuDto;
 import com.orderservice.dao.mysql.OrderMysqlDao;
+import com.orderservice.service.OrderService;
 import com.orderservice.web.dto.OrderDto;
 import com.orderservice.web.fo.OrderPageFo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,9 +28,10 @@ import java.util.List;
 public class OrderController {
 
     private final OrderMysqlDao orderMysqlDao;
-
     @Resource
     private GoodServiceClient goodServiceClient;
+    @Resource
+    private OrderService orderService;
 
     @GetMapping("/order/list")
     public ResponseResult<PageInfo<OrderDto>> getOrderList(OrderPageFo fo){
@@ -51,6 +51,12 @@ public class OrderController {
     public void testClient(){
         ResponseEntity<SkuDto> sku = goodServiceClient.getSkuById("10493538594");
         System.out.println(sku);
+    }
+
+    @PostMapping("/order/delete/{orderId}")
+    public ResponseResult<Void> deleteOrder(@PathVariable("orderId") String orderId){
+        orderService.deleteOrder(orderId);
+        return new ResponseResult<>(200,"success",null);
     }
 
 }

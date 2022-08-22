@@ -4,8 +4,8 @@ spring:
       discovery:
         username: nacos
         password: nacos
-        server-addr: 127.0.0.1:8848
-        group: wcq
+        server-addr: 192.172.0.203:8848
+        group: shaoxinyu
 
 logging:
   pattern:

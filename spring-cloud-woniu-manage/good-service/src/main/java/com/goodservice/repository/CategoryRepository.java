@@ -3,8 +3,8 @@ package com.goodservice.repository;
 import com.commons.utils.ResponseResult;
 import com.goodservice.dao.mysql.po.SpuPo;
 import com.goodservice.web.dto.SpuDto;
-import com.wcq.category.api.dto.CategoryDto;
 import com.wcq.category.api.http.CategoryServiceClinet;
+import com.wcq.category.api.web.dto.CategoryDto;
 import feign.FeignException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -26,6 +26,7 @@ public class CategoryRepository {
     public List<SpuDto> queryCategory(List<SpuDto> spuDtoList, List<SpuPo> spuPoList) {
         try {
             ResponseResult<List<CategoryDto>> responseResult = categoryServiceClinet.getCategoryRoot();
+
             List<CategoryDto> categoryRoot = responseResult.getData();
             for (int i = 0; i < spuPoList.size(); i++) {
                 for (CategoryDto categoryDto : categoryRoot) {

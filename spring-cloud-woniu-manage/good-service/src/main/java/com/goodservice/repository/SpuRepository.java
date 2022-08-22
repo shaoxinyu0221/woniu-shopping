@@ -6,7 +6,6 @@ import com.goodservice.dao.mysql.SpuMysqlDao;
 import com.goodservice.dao.mysql.po.SpuPo;
 import com.goodservice.web.controller.dto.convert.SpuDtoConvert;
 import com.goodservice.web.dto.SpuDto;
-import com.wcq.category.api.dto.CategoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

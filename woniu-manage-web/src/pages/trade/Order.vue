@@ -87,8 +87,17 @@ export default {
         this.orderList = res.data.data.list
       })
     },
-    handleDelete(){
-
+    handleDelete(val){
+      this.$axios.post("/api/order/order/delete/"+val.order_id).then(res=>{
+        if (res.data.code === 200){
+          alert("删除成功")
+          window.location.reload();
+        }else {
+          alert("删除失败,请稍后重试")
+        }
+      }).catch(error => {
+        alert("服务器繁忙,请稍后重试")
+      })
     },
     handleShow(val){
       this.$axios.get("/api/order/order/item/list?orderId="+val.order_id).then(res=>{

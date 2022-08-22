@@ -1,7 +1,6 @@
 package com.wcq.category.api.http.fallback;
 
 import com.commons.utils.ResponseResult;
-import com.wcq.category.api.dto.CategoryDto;
 import com.wcq.category.api.http.CategoryServiceClinet;
 import org.springframework.stereotype.Component;
 
