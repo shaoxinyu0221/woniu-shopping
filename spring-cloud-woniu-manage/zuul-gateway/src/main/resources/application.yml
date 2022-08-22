@@ -7,3 +7,4 @@ zuul:
     routes:
       good-service: /good/**
       order-service: /order/**
+      category-service: /category/**

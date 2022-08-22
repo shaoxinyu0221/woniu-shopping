@@ -1,6 +1,7 @@
 package com.wcq.categoryservice.repostiory;
 
-import com.wcq.category.api.dto.CategoryDto;
+import com.wcq.brandserviceapi.web.dto.BrandDto;
+import com.wcq.category.api.web.dto.CategoryDto;
 import com.wcq.categoryservice.dao.mysql.CategoryDao;
 import com.wcq.categoryservice.dao.mysql.po.CategoryPo;
 import com.wcq.categoryservice.web.controller.dto.converter.CategoryDtoConverter;
@@ -22,6 +23,9 @@ public class CategoryRepository {
     private CategoryDao categoryDao;
 
     @Resource
+    private BrandRepository brandRepository;
+
+    @Resource
     private CategoryDtoConverter converter;
     public List<CategoryDto> getCategoryRoot(){
         //获取到根顶点
@@ -31,4 +35,21 @@ public class CategoryRepository {
         return categoryDtoList;
     }
 
+    public List<CategoryDto> getCategoryPraent(Long id) {
+
+        List<CategoryPo> categoryPoList=categoryDao.getCategroyParent(id);
+
+        List<CategoryDto> categoryDtoList = converter.from(categoryPoList);
+        return  categoryDtoList;
+    }
+
+
+    public List<CategoryDto> getCategoryBrand(Integer id) {
+        List<CategoryPo> categoryPoList = categoryDao.getCategoryBrand(id);
+        List<CategoryDto> categoryDtoList = converter.from(categoryPoList);
+        for(CategoryDto category:categoryDtoList){
+           List<BrandDto>  brandDtoList = brandRepository.getBrandInfo(category.getBrandId());
+        }
+        return  categoryDtoList;
+    }
 }
