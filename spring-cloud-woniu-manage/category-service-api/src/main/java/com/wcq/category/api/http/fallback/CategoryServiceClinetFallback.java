@@ -4,9 +4,6 @@ import com.commons.utils.ResponseResult;
 import com.wcq.category.api.http.CategoryServiceClinet;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author 俞洋
  * @date 2022/8/13 17:08
