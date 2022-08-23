@@ -34,6 +34,7 @@ export default new Router({
         route("/trade/statistics",'/trade/Statistics',"Statistics"),
         route("/authority/list","/authority/List","List"),
         route("/authority/role","/authority/Role","Role"),
+        route("/authority/member","/authority/Member","Member")
       ]
     }
   ]
