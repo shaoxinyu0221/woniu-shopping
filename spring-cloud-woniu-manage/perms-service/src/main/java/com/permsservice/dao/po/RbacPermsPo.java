@@ -2,8 +2,10 @@ package com.permsservice.dao.po;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,8 +18,9 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "rbac_perms", schema = "woniu-shopping")
-public class RbacPermsPo {
+public class RbacPermsPo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")

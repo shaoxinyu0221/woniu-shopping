@@ -3,7 +3,9 @@ package com.permsservice.dao.po;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.naming.Name;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
@@ -18,11 +20,11 @@ import java.util.Objects;
 @Getter
 @Setter
 @Table(name = "tb_user", schema = "woniu-shopping")
-public class TbUserPo {
+public class TbUserPo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private long id;
+    private Integer id;
     @Basic
     @Column(name = "username")
     private String username;
@@ -39,6 +41,11 @@ public class TbUserPo {
     @Column(name = "salt")
     private String salt;
 
-    @ManyToMany()
+//    @ManyToMany
+//    @JoinTable(name = "rbac_user_perm",
+//            joinColumns = {@JoinColumn(name = "userid",referencedColumnName = "id")},
+//            inverseJoinColumns ={@JoinColumn(name = "permid",referencedColumnName = "id")}
+//    )
+    @Transient
     private List<RbacPermsPo> permsPoList;
 }
