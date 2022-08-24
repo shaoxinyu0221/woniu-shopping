@@ -12,4 +12,13 @@
     <select id="getBrandInfoByid" resultMap="brandInfo">
         select * from tb_brand where id=#{id}
     </select>
+
+    <select id="getBrandInfoAll" resultType="com.wcq.brandserviceapi.web.dto.BrandDto">
+        select * from tb_brand
+            <where>
+                <if test="name!=null and name!=''">
+                    name=#{name}
+                </if>
+            </where>
+    </select>
 </mapper>

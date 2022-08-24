@@ -1,8 +1,12 @@
 package com.wcq.brandservice.repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wcq.brandservice.dao.mysql.BrandDao;
 import com.wcq.brandserviceapi.web.dto.BrandDto;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,5 +27,12 @@ public class BrandRepository {
         List<BrandDto> brandDtoList = brandDao.getBrandInfoByid(id);
 
         return  brandDtoList;
+    }
+
+    public PageInfo<BrandDto> getBrandInfoAll(Integer pageNum, Integer pageSize, String name) {
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<BrandDto> brandDtoList = brandDao.getBrandInfoAll(name);
+        return new PageInfo<>(brandDtoList);
     }
 }

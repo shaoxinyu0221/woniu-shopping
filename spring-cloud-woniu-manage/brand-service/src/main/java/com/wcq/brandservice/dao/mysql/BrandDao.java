@@ -13,4 +13,6 @@ public interface BrandDao extends BaseMapper<BrandPo> {
 
 
     List<BrandDto> getBrandInfoByid(Long id);
+
+    List<BrandDto> getBrandInfoAll(String name);
 }
