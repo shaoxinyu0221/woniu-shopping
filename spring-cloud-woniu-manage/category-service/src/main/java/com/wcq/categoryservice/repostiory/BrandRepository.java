@@ -16,14 +16,14 @@ import java.util.List;
  * @Author legend
  */
 @Repository
+@RequiredArgsConstructor
 public class BrandRepository {
 
-    @Resource
-    private  BrandServiceClient brandServiceClient;
 
-    public List<BrandDto> getBrandInfo(Long brandId) {
+    private final BrandServiceClient brandServiceClient;
 
-        ResponseResult<List<BrandDto>> brandInfo = brandServiceClient.getBrandInfo(brandId);
+    public List<BrandDto> getBrandInfo(Long id) {
+        ResponseResult<List<BrandDto>> brandInfo = brandServiceClient.getBrandInfo(id);
         return  brandInfo.getData();
     }
 }

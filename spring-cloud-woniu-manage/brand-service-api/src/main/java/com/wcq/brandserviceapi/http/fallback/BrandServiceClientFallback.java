@@ -16,7 +16,7 @@ import java.util.List;
 public class BrandServiceClientFallback implements BrandServiceClient {
 
     public ResponseResult<List<BrandDto>> getBrandInfo(Long id) {
-        System.out.println("getDepartment() 方法的备胎方法执行了，意味着 openfeign http 请求失败。");
+        System.out.println("getBrand() 方法的备胎方法执行了，意味着 openfeign http 请求失败。");
         return new ResponseResult<List<BrandDto>>(10086, "fallback return", null);
     }
 }

@@ -5,6 +5,7 @@ import com.wcq.brandservice.repository.BrandRepository;
 import com.wcq.brandserviceapi.web.dto.BrandDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -22,11 +23,11 @@ public class BrandController {
     @Resource
     private BrandRepository brandRepository;
 
-    @GetMapping("/brand/getInfo/{id}")
-    public ResponseResult<List<BrandDto>> getBrandInfo(@PathVariable("id") Integer id){
-
+    @RequestMapping("/brand/{id}")
+    public ResponseResult<List<BrandDto>> getBrandInfo(@PathVariable("id") Long id){
+        System.out.println(id);
          List<BrandDto> brandDtoList =  brandRepository.getBrandInfoByid(id);
-
+        System.out.println(brandDtoList+"*****");
          return new ResponseResult<>(200,"ok",brandDtoList);
     }
 

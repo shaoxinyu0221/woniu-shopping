@@ -30,4 +30,5 @@ public class CategoryPo implements Serializable {
     private Long parentId;
     private Integer isParent;
     private Integer sort;
+    private Long brandId;
 }

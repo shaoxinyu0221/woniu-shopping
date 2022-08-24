@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableFeignClients(basePackages = "com.wcq.category.api.http")
+@EnableFeignClients(basePackages = "com.wcq.brandserviceapi.http")
 public class OpenFeignConfig {
 
     @Bean

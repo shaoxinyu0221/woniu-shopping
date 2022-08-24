@@ -18,7 +18,7 @@ public class BrandRepository {
     @Resource
     private BrandDao brandDao;
 
-    public List<BrandDto> getBrandInfoByid(Integer id) {
+    public List<BrandDto> getBrandInfoByid(Long id) {
 
         List<BrandDto> brandDtoList = brandDao.getBrandInfoByid(id);
 

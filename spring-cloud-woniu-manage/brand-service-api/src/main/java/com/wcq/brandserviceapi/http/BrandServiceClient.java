@@ -7,13 +7,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 import java.util.List;
 
 @FeignClient(name = "brand-service",fallback = BrandServiceClientFallback.class )
 public interface BrandServiceClient {
 
-    @GetMapping("/brand/getInfo/{id}")
+    @GetMapping("/brand/{id}")
     ResponseResult<List<BrandDto>> getBrandInfo(@PathVariable("id") Long id);
 
 }
