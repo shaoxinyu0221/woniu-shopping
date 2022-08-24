@@ -1,8 +1,10 @@
-package com.permsservice.web;
+package com.permsservice.web.controller;
 
 import com.commons.utils.ResponseResult;
 import com.permsservice.dao.mysql.PermsMysqlDao;
+import com.permsservice.dao.mysql.UserMysqlDao;
 import com.permsservice.dao.po.RbacPermsPo;
+import com.permsservice.dao.po.TbUserPo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +25,14 @@ public class PermsController {
 
     @Resource
     private PermsMysqlDao permsMysqlDao;
+    @Resource
+    private UserMysqlDao userMysqlDao;
+
+    @GetMapping("/user/list")
+    public ResponseResult<List<TbUserPo>> getUserList(){
+        List<TbUserPo> userList = userMysqlDao.findAll();
+        return new ResponseResult<>(200,"success",userList);
+    }
 
     @GetMapping("/perms/list/{userId}")
     public ResponseResult<List<RbacPermsPo>> getPermListByUserId(@PathVariable("userId") Integer userId){

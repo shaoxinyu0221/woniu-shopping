@@ -2,6 +2,7 @@ package com.permsservice.web;
 
 import com.permsservice.dao.mysql.PermsMysqlDao;
 import com.permsservice.dao.po.RbacPermsPo;
+import com.permsservice.web.controller.PermsController;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional

@@ -19,6 +19,7 @@
         <module>order-service-api</module>
         <module>commons-util</module>
         <module>category-service-api</module>
+        <module>perms-service</module>
     </modules>
 
     <properties>

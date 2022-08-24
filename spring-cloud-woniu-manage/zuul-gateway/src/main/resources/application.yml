@@ -8,4 +8,5 @@ zuul:
       good-service: /good/**
       order-service: /order/**
       category-service: /category/**
+      perms-service: /perms/**
       brand-service: /brand/**
